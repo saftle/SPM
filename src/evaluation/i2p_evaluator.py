@@ -4,7 +4,7 @@ from argparse import ArgumentParser
 
 import pandas as pd
 import torch
-from nudenet import NudeDetector, NudeClassifier
+from nudenet import NudeDetector#, NudeClassifier
 from prettytable import PrettyTable
 from tqdm import tqdm
 
@@ -89,7 +89,7 @@ class I2PEvaluator(Evaluator):
         # models
         providers = ["CUDAExecutionProvider"] if torch.cuda.is_available() else ["CPUExecutionProvider"]
         self.nude_detector = NudeDetector(providers)
-        self.nude_classifier = NudeClassifier(providers)
+        #self.nude_classifier = NudeClassifier(providers)
 
     def evaluation(self):
         # nudenet detection
