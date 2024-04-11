@@ -1,4 +1,30 @@
-# Concept Semi-Permeable Membrane
+# CivitAI Semi-Permeable Membrane (SPM) Training
+
+Using the [original](https://github.com/Con6924/SPM) code provided by the authors of the [One-Dimensional Adapter to Rule Them All: Concepts, Diffusion Models and Erasing Applications](https://arxiv.org/abs/2312.16145) paper, this repository equips you with configuration files to train SPMs on various diffusion models like SD1.5, SDXL, and Pony Diffusion.
+
+## Our Approach with SPMs
+
+At CivitAI, we leverage SPMs for content moderation to ensure that no CSAM or Toxic Mature Content is generated via our on-site generator. Our unique approach involves training multiple SPMs on distinct concepts and then merging these models into one just like you would do with multiple LoRAs. This method enhances the adaptability and effectiveness of our models in handling diverse content moderation needs.
+
+## Creating Your Composite SPM
+
+To emulate CivitAI's SPMs setup, you should train individual SPMs on various concepts initially. Post-training, these models can be merged to form a comprehensive, unified model capable of sophisticated content moderation across different scenarios and diffusion models.
+
+### Steps to Create a Composite SPM:
+
+1. **Train Individual Models**: Start by training separate SPMs on different concept. Each model specializes in recognizing and moderating specific content types.
+2. **Merge Models**: Combine these trained models using a methodology akin to LoRA merging.
+3. **Evaluate and Iterate**: Test the combined model's effectiveness across scenarios that the individual models were trained on, and iteratively refine the merging process for improved performance.
+
+By following these steps, you can create a robust and versatile SPM that mirrors the functionality of CivitAI’s own systems, ensuring effective moderation across multiple diffusion platforms.
+
+---
+
+We hope this guide assists you in your endeavors to develop advanced content moderation tools. For further assistance or collaboration inquiries, please feel free to contact us.
+
+# Authors README
+
+## Concept Semi-Permeable Membrane
 
 ### ✏️ [Project Page](https://lyumengyao.github.io/projects/spm) | 📄 [arXiv](https://arxiv.org/abs/2312.16145) | 🤗 Hugging Face
 
