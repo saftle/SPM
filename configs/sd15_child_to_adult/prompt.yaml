@@ -1,0 +1,12 @@
+
+- target: "child"
+  positive: "child"
+  unconditional: ""
+  neutral: "adult"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 1
+  dynamic_resolution: true
+  la_strength: 100
+  sampling_batch_size: 4

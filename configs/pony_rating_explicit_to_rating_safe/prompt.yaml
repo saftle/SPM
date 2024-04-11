@@ -1,0 +1,12 @@
+
+- target: "rating_explicit"
+  positive: "rating_explicit"
+  unconditional: ""
+  neutral: "rating_safe"
+  action: "erase_with_la"
+  guidance_scale: "2.0"
+  resolution: 1024
+  batch_size: 1
+  dynamic_resolution: true
+  la_strength: 400
+  sampling_batch_size: 1

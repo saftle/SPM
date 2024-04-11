@@ -1,0 +1,44 @@
+
+prompts_file: "configs/pony_rating_explicit_to_rating_safe/prompt.yaml"
+
+pretrained_model:
+  name_or_path: "stablediffusionapi/pony-diffusion-v6-xl"
+  v2: false
+  v_pred: false
+  clip_skip: 2
+
+network:
+  rank: 2
+  alpha: 1.0
+
+train:
+  precision: bfloat16
+  noise_scheduler: "ddim"
+  iterations: 5000
+  batch_size: 1
+  lr: 0.0002
+  unet_lr: 0.0002
+  text_encoder_lr: 0.0001
+  optimizer_type: "AdamW8bit"
+  lr_scheduler: "cosine_with_restarts"
+  lr_warmup_steps: 500
+  lr_scheduler_num_cycles: 3
+  max_denoising_steps: 20
+
+save:
+  name: "nudity"
+  path: "output/nudity"
+  per_steps: 500
+  precision: bfloat16
+
+logging:
+  use_wandb: true
+  interval: 500
+  seed: 0
+  generate_num: 2
+  run_name: "pony_rating_explicit_to_rating_safe"
+  verbose: false
+  prompts: ['rating_explicit']
+
+other:
+  use_xformers: true
