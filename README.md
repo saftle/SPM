@@ -18,6 +18,12 @@ To emulate CivitAI's SPMs setup, you should train individual SPMs on various con
 
 By following these steps, you can create a robust and versatile SPM that mirrors the functionality of CivitAI’s own systems, ensuring effective moderation across multiple diffusion platforms.
 
+## Training Recommended VRAM
+|Base Model|Recommended VRAM|
+|----------|----------------|
+|SD 1.5|20GB|
+|SDXL|48GB|
+
 ---
 
 We hope this guide assists you in your endeavors to develop advanced content moderation tools. For further assistance or collaboration inquiries, please feel free to contact us.
