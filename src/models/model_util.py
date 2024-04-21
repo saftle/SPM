@@ -82,7 +82,6 @@ def load_checkpoint_model(
     weight_dtype: torch.dtype = torch.float32,
     device = "cuda",
 ) -> tuple[CLIPTokenizer, CLIPTextModel, UNet2DConditionModel, DiffusionPipeline]:
-    print(f"Loading checkpoint from {checkpoint_path}")
     if checkpoint_path == "BAAI/AltDiffusion":
         pipe = AltDiffusionPipeline.from_pretrained(
             "BAAI/AltDiffusion", 
@@ -92,13 +91,24 @@ def load_checkpoint_model(
             local_files_only=LOCAL_ONLY,
         ).to(device)
     else:
-        pipe = StableDiffusionPipeline.from_pretrained(
-            checkpoint_path,
-            upcast_attention=True if v2 else False,
-            torch_dtype=weight_dtype,
-            cache_dir=DIFFUSERS_CACHE_DIR,
-            local_files_only=LOCAL_ONLY,
-        ).to(device)
+        if checkpoint_path.endswith(".safetensors"):
+            print(f"Loading local checkpoint from {checkpoint_path}")
+            pipe = StableDiffusionPipeline.from_single_file(
+                checkpoint_path,
+                upcast_attention=True if v2 else False,
+                torch_dtype=weight_dtype,
+                cache_dir=DIFFUSERS_CACHE_DIR,
+                local_files_only=LOCAL_ONLY,
+            ).to(device)
+        else:
+            print(f"Loading checkpoint from {checkpoint_path}")
+            pipe = StableDiffusionPipeline.from_pretrained(
+                checkpoint_path,
+                upcast_attention=True if v2 else False,
+                torch_dtype=weight_dtype,
+                cache_dir=DIFFUSERS_CACHE_DIR,
+                local_files_only=LOCAL_ONLY,
+            ).to(device)
 
     unet = pipe.unet
     tokenizer = pipe.tokenizer
@@ -183,12 +193,23 @@ def load_checkpoint_model_xl(
     weight_dtype: torch.dtype = torch.float32,
     device = "cuda",
 ) -> tuple[list[CLIPTokenizer], list[SDXL_TEXT_ENCODER_TYPE], UNet2DConditionModel, DiffusionPipeline, ]:
-    pipe = StableDiffusionXLPipeline.from_pretrained(
-        checkpoint_path,
-        torch_dtype=weight_dtype,
-        cache_dir=DIFFUSERS_CACHE_DIR,
-        local_files_only=LOCAL_ONLY,
-    ).to(device)
+    #Check if checkpoint path ends with ".safetensors"
+    if checkpoint_path.endswith(".safetensors"):
+        print(f"Loading local checkpoint from {checkpoint_path}")
+        pipe = StableDiffusionXLPipeline.from_single_file(
+            checkpoint_path,
+            torch_dtype=weight_dtype,
+            cache_dir=DIFFUSERS_CACHE_DIR,
+            local_files_only=LOCAL_ONLY,
+        ).to(device)
+    else:
+        print(f"Loading checkpoint from {checkpoint_path}")
+        pipe = StableDiffusionXLPipeline.from_pretrained(
+            checkpoint_path,
+            torch_dtype=weight_dtype,
+            cache_dir=DIFFUSERS_CACHE_DIR,
+            local_files_only=LOCAL_ONLY,
+        ).to(device)
 
     unet = pipe.unet
     tokenizers = [pipe.tokenizer, pipe.tokenizer_2]
