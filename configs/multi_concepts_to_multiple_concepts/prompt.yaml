@@ -1,0 +1,133 @@
+
+- target: "girl"
+  positive: "girl"
+  unconditional: ""
+  neutral: "woman"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "teen"
+  positive: "teen"
+  unconditional: ""
+  neutral: "adult"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "child"
+  positive: "child"
+  unconditional: ""
+  neutral: "adult"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "loli"
+  positive: "loli"
+  unconditional: ""
+  neutral: "adult woman"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "boy"
+  positive: "boy"
+  unconditional: ""
+  neutral: "adult man"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "toddler"
+  positive: "toddler"
+  unconditional: ""
+  neutral: "adult"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "preteen"
+  positive: "preteen"
+  unconditional: ""
+  neutral: "adult"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "baby"
+  positive: "baby"
+  unconditional: ""
+  neutral: "adult"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "young girl"
+  positive: "young girl"
+  unconditional: ""
+  neutral: "adult woman"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "young boy"
+  positive: "young boy"
+  unconditional: ""
+  neutral: "adult man"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  
+- target: "baby"
+  positive: "baby"
+  unconditional: ""
+  neutral: "adult"
+  action: "erase_with_la"
+  guidance_scale: "1.5"
+  resolution: 512
+  batch_size: 4
+  dynamic_resolution: true
+  la_strength: 250
+  sampling_batch_size: 4
+  

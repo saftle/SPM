@@ -1,0 +1,44 @@
+
+prompts_file: "configs/multi_concepts_to_multiple_concepts/prompt.yaml"
+
+pretrained_model:
+  name_or_path: "stablediffusionapi/urpm-v13"
+  v2: false
+  v_pred: false
+  clip_skip: 1
+
+network:
+  rank: 2
+  alpha: 1.0
+
+train:
+  precision: bfloat16
+  noise_scheduler: "ddim"
+  iterations: 6000
+  batch_size: 4
+  lr: 0.00015
+  unet_lr: 0.00015
+  text_encoder_lr: 7.5e-05
+  optimizer_type: "AdamW8bit"
+  lr_scheduler: "cosine_with_restarts"
+  lr_warmup_steps: 500
+  lr_scheduler_num_cycles: 3
+  max_denoising_steps: 20
+
+save:
+  name: "multi_concepts_to_multiple_concepts"
+  path: "output/multi_concepts_to_multiple_concepts"
+  per_steps: 750
+  precision: bfloat16
+
+logging:
+  use_wandb: false
+  interval: 500
+  seed: 0
+  generate_num: 2
+  run_name: "multi_concepts_to_multiple_concepts"
+  verbose: false
+  prompts: ['', '', 'cat', 'dog']
+
+other:
+  use_xformers: true
