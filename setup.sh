@@ -31,16 +31,5 @@ function run_in_conda() {
 git clone https://github.com/civitai/SPM
 cd SPM/
 
-# Install packages within the conda environment
-run_in_conda "pip install -U pip"
-run_in_conda "pip install torch --index-url https://download.pytorch.org/whl/cu118"
-run_in_conda "pip install torchvision --index-url https://download.pytorch.org/whl/cu118"
-run_in_conda "pip install xformers --index-url https://download.pytorch.org/whl/cu118"
-run_in_conda "pip install huggingface_hub==0.25.0"
-
-# Modify requirements file to avoid conflicts
-sed -i 's/^\(library==.*\)/#\1/' requirements.txt
-sed 's/==[^# ]*//g' requirements.txt > requirements_nv.txt
-
 # Install requirements within the conda environment
-run_in_conda "pip install -r ./requirements_nv.txt"
+run_in_conda "pip install -r ./requirements.txt"
