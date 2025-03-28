@@ -27,3 +27,4 @@ lightning
 nudenet==3.0.8
 invisible-watermark
 git+https://github.com/openai/CLIP.git
+omegaconf
